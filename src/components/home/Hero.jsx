@@ -15,7 +15,7 @@ export default function Hero({ introFinished }) {
         <img src={snowflake} alt="" aria-hidden="true" className={flake} />
         <p className={phrase}>Have a #CokeChristmas</p>
       </div>
-      <div className="mx-auto mt-6 max-w-[1322px] lg:mt-14">
+      <div data-scroll-reveal="1" className="mx-auto mt-6 max-w-[1322px] lg:mt-14">
         <Layered w={1322} h={698} items={HERO_ITEMS} />
       </div>
     </section>

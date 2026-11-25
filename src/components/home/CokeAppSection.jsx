@@ -18,22 +18,22 @@ export default function CokeAppSection() {
       ))}
       <div className="relative z-10 mx-auto flex max-w-[686px] flex-col items-center gap-10 px-4">
         <div className="flex flex-col items-center gap-6 text-center">
-          <p className="font-bold">
+          <p data-scroll-reveal="0" className="font-bold">
             <span className={MID}>stay tuned with every step on</span> <span className={BIG}>Coke App</span>
           </p>
-          <p className="max-w-[444px] text-[16px] leading-[20.48px]">
+          <p data-scroll-reveal="1" className="max-w-[444px] text-[16px] leading-[20.48px]">
             Win prizes, be notified with all news also follow Santa on his path - all this in one place - <span className="font-bold">Coke App</span>
           </p>
         </div>
         <div className="app-store-badges" style={{ "--badges-art": `url("${appButtons}")` }}>
-          <span className="app-store-badge" role="img" aria-label="Download on the App Store">
+          <span data-scroll-reveal="2" className="app-store-badge" role="img" aria-label="Download on the App Store">
             <span className="app-store-badge-shine" aria-hidden="true" />
           </span>
-          <span className="app-store-badge" role="img" aria-label="Get it on Google Play">
+          <span data-scroll-reveal="3" className="app-store-badge" role="img" aria-label="Get it on Google Play">
             <span className="app-store-badge-shine" aria-hidden="true" />
           </span>
         </div>
-        <img src={gnomesGif} width={512} height={341} loading="lazy" alt="Three Coca-Cola gnomes looking at the Coke App" className="h-auto w-full max-w-[613px]" />
+        <img data-scroll-reveal="1" src={gnomesGif} width={512} height={341} loading="lazy" alt="Three Coca-Cola gnomes looking at the Coke App" className="h-auto w-full max-w-[613px]" />
       </div>
       <ScrollRevealLine className="relative z-10 -mt-[clamp(0px,3.9vw,56px)]">
         <svg className="absolute h-0 w-0" aria-hidden="true">

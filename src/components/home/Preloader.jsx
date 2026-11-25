@@ -13,6 +13,16 @@ const BOTTLE_PATH =
 // how much of the reveal the headline and snowflake take to fade away
 const FADE = 0.3;
 
+function PreloaderDots() {
+  return (
+    <span className="preloader-dots" aria-hidden="true">
+      <span>.</span>
+      <span>.</span>
+      <span>.</span>
+    </span>
+  );
+}
+
 export default function Preloader({ onDone }) {
   const bottleRef = useRef(null);
   const doneRef = useRef(false);
@@ -153,7 +163,7 @@ export default function Preloader({ onDone }) {
         style={{ opacity: fade }}
       >
         <p className="text-center text-3xl font-bold leading-[1.057] text-secondary font-heading sm:text-5xl lg:whitespace-nowrap lg:text-figma-56">
-          ...let’s have #CokeChristmas...
+          <PreloaderDots />let’s have #CokeChristmas<PreloaderDots />
         </p>
         <div className="preloader-mark relative shrink-0">
           <img className="absolute inset-0 h-full w-full" src={preloaderSnowflake} alt="" aria-hidden="true" />

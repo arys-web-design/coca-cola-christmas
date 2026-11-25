@@ -28,6 +28,7 @@ export default function TreeGlow({ items }) {
         className="tree-snow pointer-events-none"
       />
       <div
+        data-scroll-reveal="1"
         className="absolute"
         style={{
           left: `${((treeCenter - treeWidth / 2) / sectionWidth) * 100}%`,

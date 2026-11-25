@@ -35,7 +35,7 @@ export default function FlavourSection() {
             </div>
           </div>
         </div>
-        <p className="min-w-0 text-center font-bold md:max-w-[800px] md:flex-1 md:text-left">
+        <p data-scroll-reveal="0" className="min-w-0 text-center font-bold md:max-w-[800px] md:flex-1 md:text-left">
           <span className={MID}>for everyone, there is</span> <span className={BIG}>a flavour</span>
         </p>
       </div>

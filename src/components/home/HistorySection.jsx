@@ -14,14 +14,14 @@ export default function HistorySection() {
       </ScrollRevealLine>
       <div className="relative z-10 mx-auto mt-9 flex max-w-[1380px] flex-col items-center gap-16 px-4 lg:flex-row lg:justify-between lg:gap-[7.5%] lg:px-[0.7%]">
         <div className="lg:w-[49.7%]">
-          <p className="font-bold">
+          <p data-scroll-reveal="0" className="font-bold">
             <span className={MID}>same taste and bringing feelings</span> <span className={BIG}>since 1886</span>
           </p>
-          <p className="mt-6 max-w-[444px] text-[16px] leading-[20.48px]">
+          <p data-scroll-reveal="1" className="mt-6 max-w-[444px] text-[16px] leading-[20.48px]">
             <span className="font-bold">Dr. John Stith Pemberton</span> was experimenting with a new syrup in Atlanta. Add some carbonated water, give it a name, and suddenly — Coca-Cola. What started behind a pharmacy counter became a taste recognized around the world. He created a legend of drinks.
           </p>
         </div>
-        <div className="relative w-[min(572px,92%)] shrink-0 lg:w-[41.4%]">
+        <div data-scroll-reveal="2" className="relative w-[min(572px,92%)] shrink-0 lg:w-[41.4%]">
           <div className="ornament-swing relative">
             <img
               src={historyOrnament}

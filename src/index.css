@@ -403,3 +403,46 @@
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+.preloader-dots {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.preloader-dots > span {
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal-state="pending"]:not(:focus-within) {
+    opacity: 0;
+  }
+
+  [data-reveal-state="revealed"] {
+    animation: scroll-content-enter 540ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    animation-delay: var(--scroll-reveal-delay, 0ms);
+  }
+
+  [data-scroll-reveal="1"] { --scroll-reveal-delay: 85ms; }
+  [data-scroll-reveal="2"] { --scroll-reveal-delay: 170ms; }
+  [data-scroll-reveal="3"] { --scroll-reveal-delay: 255ms; }
+
+  .preloader-dots > span {
+    animation: preloader-dot-wave 1.7s ease-in-out infinite;
+    animation-delay: calc(var(--dots-offset, 0ms) + var(--dot-offset, 0ms));
+  }
+
+  .preloader-dots:last-child { --dots-offset: 330ms; }
+  .preloader-dots > :nth-child(2) { --dot-offset: 110ms; }
+  .preloader-dots > :nth-child(3) { --dot-offset: 220ms; }
+}
+
+@keyframes scroll-content-enter {
+  from { opacity: 0; translate: 0 14px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@keyframes preloader-dot-wave {
+  0%, 48%, 100% { transform: translateY(0); }
+  24% { transform: translateY(-0.14em); }
+}

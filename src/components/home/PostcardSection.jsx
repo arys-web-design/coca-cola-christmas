@@ -14,14 +14,14 @@ export default function PostcardSection() {
   return (
     <section id="postcard" className="mt-9 px-3 sm:px-[1.5%] lg:mt-14">
       <div className="mx-auto flex max-w-[1392px] flex-col items-center gap-10">
-        <p className="text-center font-bold">
+        <p data-scroll-reveal="0" className="text-center font-bold">
           <span className={MID}>
             but instead wasting your time with scrolling, <br />why not to send to your dearest
           </span>{" "}
           <br />
           <span className={BIG}>#CokePostcard?</span>
         </p>
-        <div className="w-full max-w-[929px]">
+        <div data-scroll-reveal="1" className="w-full max-w-[929px]">
           <div
             ref={triggerRef}
             role="button"
