@@ -1,0 +1,25 @@
+{
+  "name": "coca-cola-christmas",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource/caveat": "^5",
+    "@fontsource/lora": "^5",
+    "lucide-react": "^0.475.0",
+    "react": "^19",
+    "react-dom": "^19"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6",
+    "autoprefixer": "^10",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.17",
+    "vite": "^8"
+  }
+}

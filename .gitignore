@@ -1,0 +1,37 @@
+# Dependencies and generated output
+/node_modules/
+/dist/
+/coverage/
+*.tsbuildinfo
+*.log
+.DS_Store
+
+# Local reference materials and original Base44 export
+/base44-source/
+/homepage-reference.png
+/Preloader.png
+/assets/arrows.png
+/assets/christmas-tree-flavours.png
+/assets/Animated Coca-Cola Christmas Tree Gnomes.gif
+/assets/header/vec9[4-9].svg
+/assets/header/vec10[0-2].svg
+
+# Local tool state and configuration
+/.codex/
+/.agents/
+/.vscode/
+/.idea/
+.env
+.env.*
+*.local
+.npmrc
+.netrc
+.aws/
+.ssh/
+secrets/
+credentials.json
+service-account*.json
+*.pem
+*.key
+*.p12
+*.pfx
