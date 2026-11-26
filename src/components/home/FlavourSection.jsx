@@ -14,9 +14,9 @@ const bTop = pathTop + endY - SLEIGH_SIZE * contactY;
 export default function FlavourSection() {
   return (
     <section id="flavours" className="px-3 sm:px-[1.5%]">
-      <div className="mx-auto -mt-[clamp(0px,2.3vw,33px)] flex max-w-[1412px] flex-col items-center gap-6 md:flex-row md:items-end md:justify-center md:gap-[clamp(24px,5.1vw,74px)] lg:mt-0">
+      <div className="mx-auto -mt-[clamp(0px,2.3vw,33px)] flex max-w-[1412px] flex-col items-center gap-3 md:flex-row md:items-end md:justify-center md:gap-[clamp(24px,5.1vw,74px)] lg:mt-0">
         <div className="w-[min(359px,70%)] shrink-0 md:w-[clamp(220px,25vw,359px)]">
-          <div className="relative" style={{ aspectRatio: `${BW} / ${BH}` }}>
+          <div className="relative max-md:mb-[-14%]" style={{ aspectRatio: `${BW} / ${BH}` }}>
             {/* the white drawn path never moves */}
             <Layered w={BW} h={BH} items={SLEIGH_PATH_ITEMS} />
             {/* only the bottle riding it travels along the path */}

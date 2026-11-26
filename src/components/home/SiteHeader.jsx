@@ -104,7 +104,7 @@ export default function SiteHeader() {
           </button>
         </div>
         {open && (
-          <nav aria-label="Mobile" className="flex flex-col gap-1 px-6 pb-6 lg:hidden">
+          <nav aria-label="Mobile" className="flex flex-col gap-1 px-6 pb-6 text-center lg:hidden">
             {LINKS.map(([label, href]) => (
               <a
                 key={label}
@@ -115,7 +115,7 @@ export default function SiteHeader() {
                 {label}
               </a>
             ))}
-            <div className="pt-2"><Eng /></div>
+            <div className="self-center pt-6"><Eng /></div>
           </nav>
         )}
       </div>
