@@ -12,6 +12,7 @@ const BOTTLE_PATH =
 
 // how much of the reveal the headline and snowflake take to fade away
 const FADE = 0.3;
+const MOBILE_LAYOUT = "(max-width: 767.98px), (max-width: 1023.98px) and (max-height: 500px) and (pointer: coarse)";
 
 function PreloaderDots() {
   return (
@@ -24,6 +25,7 @@ function PreloaderDots() {
 }
 
 export default function Preloader({ onDone }) {
+  const curtainRef = useRef(null);
   const bottleRef = useRef(null);
   const doneRef = useRef(false);
   const targetRef = useRef(0);
@@ -33,13 +35,16 @@ export default function Preloader({ onDone }) {
   // the portal opens exactly on the bottle drawn inside the snowflake, and expands
   // until the silhouette covers every corner of the viewport
   useEffect(() => {
+    const curtain = curtainRef.current;
+    const mobile = window.matchMedia(MOBILE_LAYOUT);
     const measure = () => {
       const r = bottleRef.current?.getBoundingClientRect();
       if (!r) return;
-      const vw = window.innerWidth;
-      const vh = window.innerHeight;
-      const cx = r.left + r.width / 2;
-      const cy = r.top + r.height / 2;
+      const bounds = mobile.matches ? curtain.getBoundingClientRect() : null;
+      const vw = bounds?.width ?? window.innerWidth;
+      const vh = bounds?.height ?? window.innerHeight;
+      const cx = r.left + r.width / 2 - (bounds?.left ?? 0);
+      const cy = r.top + r.height / 2 - (bounds?.top ?? 0);
       const dx = Math.max(cx, vw - cx);
       const dy = Math.max(cy, vh - cy);
       // the silhouette is a bottle: narrow at the cap, full width around its body,
@@ -49,7 +54,14 @@ export default function Preloader({ onDone }) {
     };
     measure();
     window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+    const observer = new ResizeObserver(() => {
+      if (mobile.matches) measure();
+    });
+    observer.observe(curtain);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", measure);
+    };
   }, []);
 
   useEffect(() => {
@@ -135,7 +147,7 @@ export default function Preloader({ onDone }) {
   const fade = Math.max(0, 1 - p / FADE);
 
   return (
-    <div className="fixed inset-0 z-[100] overflow-hidden">
+    <div ref={curtainRef} className="preloader fixed inset-0 z-[100] overflow-hidden" data-revealing={p > 0}>
       {/* the solid red curtain with one bottle silhouette cut out of it, drawn by an
           SVG mask: no CSS mask compositing, so the hole can never fragment or stripe */}
       <svg className="absolute inset-0 h-full w-full" aria-hidden="true" focusable="false">
@@ -162,7 +174,7 @@ export default function Preloader({ onDone }) {
         className="preloader-content pointer-events-none absolute inset-0 flex flex-col items-center px-6"
         style={{ opacity: fade }}
       >
-        <p className="text-center text-3xl font-bold leading-[1.057] text-secondary font-heading sm:text-5xl lg:whitespace-nowrap lg:text-figma-56">
+        <p className="preloader-title text-center text-3xl font-bold leading-[1.057] text-secondary font-heading sm:text-5xl lg:whitespace-nowrap lg:text-figma-56">
           <PreloaderDots />let’s have #CokeChristmas<PreloaderDots />
         </p>
         <div className="preloader-mark relative shrink-0">

@@ -39,7 +39,7 @@ export default function FlavourSection() {
           <span className={MID}>for everyone, there is</span> <span className={BIG}>a flavour</span>
         </p>
       </div>
-      <div className="mx-auto mt-8 max-w-[1320px] lg:mt-14">
+      <div className="flavour-tree mx-auto mt-8 max-w-[1320px] lg:mt-14">
         <TreeGlow items={TREE_ITEMS} />
       </div>
     </section>
